@@ -1,0 +1,51 @@
+.imagenlogo {
+    max-width: 50%; /* Establece el ancho máximo deseado en píxeles o cualquier otra unidad de medida */
+    height: auto; /* Esto garantiza que la altura se ajuste automáticamente para mantener la proporción de la imagen */
+}
+footer {
+    background-color: #F8F9FA;
+}
+h3 {
+    margin: 30px;
+    width: 30%;
+    color: black;
+}
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img1moto {
+    width: 18.75rem;
+}
+.informacion {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    .contenedor1 {
+        width: 50%;
+        border-radius: 10%;
+        height: 60vh;
+        display: flex;
+        justify-content:center ;
+        img {
+            width: 60%;
+            border-radius: 10%;
+        }
+    }
+}
+.contenedorparrafo {
+    width: 50%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    div {
+        margin: 10px;
+        width: 100%;
+        border: 3px solid black;
+        p {
+            padding: .625rem;
+        }
+    }
+}
