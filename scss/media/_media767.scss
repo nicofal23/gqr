@@ -1,4 +1,11 @@
 @media (max-width: 767px) {
+    .informacion {
+        flex-direction: column;
+        align-items: center;
+        .contenedor1 {
+            width: 100%;
+        }
+    }
     .container {
         a {
         display: flex;

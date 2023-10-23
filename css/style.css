@@ -52,14 +52,13 @@ h3 {
   .contenedorparrafo div {
     margin: 10px;
     width: 100%;
-    border: 3px solid black; }
+    border: 3px solid #F8F9FA; }
     .contenedorparrafo div p {
       padding: .625rem; }
 
-@media (max-width: 767px) {
-  .container a {
-    display: flex;
-    justify-content: center; } }
+.botones {
+  display: flex;
+  justify-content: space-between; }
 
 #miModal {
   position: absolute;
@@ -80,3 +79,12 @@ h3 {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
 
 /* Resto de tus estilos para el modal... */
+@media (max-width: 767px) {
+  .informacion {
+    flex-direction: column;
+    align-items: center; }
+    .informacion .contenedor1 {
+      width: 100%; }
+  .container a {
+    display: flex;
+    justify-content: center; } }
