@@ -25,19 +25,23 @@ const usuarios = [
 ];
 
 
-const express = require('express');
-const app = express();
+const http = require('http');
+const url = require('url');
 
-// Ruta para manejar las solicitudes de usuario por nombre de usuario
-app.get('/gqr/index.html/:usuario', (req, res) => {
-    const nombreUsuario = req.params.usuario;
+const server = http.createServer((req, res) => {
+    const parsedUrl = url.parse(req.url, true);
+    const path = parsedUrl.pathname;
+    const nombreUsuario = path.substring(14); // Eliminar "/gqr/index.html/"
 
     // Buscar el usuario por nombre de usuario en el array de usuarios
     const usuario = usuarios.find(u => u.usuario === nombreUsuario);
 
-    if (usuario) {
-        // Renderizar la página con los datos del usuario
-        res.send(`
+    if (path.startsWith('/gqr/index.html/') && usuario) {
+        // Configurar la respuesta como HTML
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+
+        // Enviar los datos del usuario como respuesta HTML
+        res.end(`
             <h1>Información del Usuario</h1>
             <p>Nombre: ${usuario.nombre}</p>
             <p>Apellido: ${usuario.apellido}</p>
@@ -48,12 +52,13 @@ app.get('/gqr/index.html/:usuario', (req, res) => {
             <p>Condiciones Médicas: ${usuario.condicionesMedicas.join(', ')}</p>
         `);
     } else {
-        // Si el usuario no existe, mostrar un mensaje de error
-        res.status(404).send('Usuario no encontrado');
+        // Si el usuario no existe o la ruta no es válida, mostrar un mensaje de error
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Usuario no encontrado');
     }
 });
 
 // Iniciar el servidor en el puerto 3000
-app.listen(3000, () => {
+server.listen(3000, () => {
     console.log('Servidor escuchando en el puerto 3000');
 });
