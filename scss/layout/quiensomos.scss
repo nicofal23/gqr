@@ -1,0 +1,33 @@
+.quiensomos {
+    display: flex;
+    justify-content: center;
+    h2 {
+        color: #007bff; /* Cambia el color del texto a azul, puedes ajustar el valor del color según tu preferencia */
+        font-family: Arial, sans-serif; /* Establece la fuente del texto */
+        text-align: center; /* Centra el texto horizontalmente */
+        margin-bottom: 20px; /* Agrega un espacio en la parte inferior del encabezado */
+        font-size: 3.75rem;
+      }
+}
+/* Estilo para el encabezado "Quienes Somos" con subrayado debajo del espacio de margen */
+.quiensomos h2 {
+    color: #007bff; /* Cambia el color del texto a azul, puedes ajustar el valor del color según tu preferencia */
+    font-family: Arial, sans-serif; /* Establece la fuente del texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-bottom: 20px; /* Agrega un espacio en la parte inferior del encabezado */
+    position: relative; /* Establece la posición relativa para que el subrayado sea relativo a este elemento */
+  }
+  
+  .quiensomos h2::after {
+    content: ''; /* Crea un elemento ficticio para el subrayado */
+    position: absolute; /* Establece la posición absoluta para que se sitúe debajo del elemento */
+    left: 0; /* Coloca el subrayado alineado con el borde izquierdo del elemento padre */
+    bottom: -5px; /* Ajusta la posición vertical del subrayado debajo del espacio de margen */
+    width: 100%; /* Establece la longitud del subrayado al 100% del ancho del elemento padre */
+    border-bottom: 2px solid #007bff; /* Agrega un subrayado de 2 píxeles de grosor y color azul */
+  }
+  
+  .parrafo {
+    padding: 1.25rem;
+    display: flex;
+  }

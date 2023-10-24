@@ -1,38 +1,72 @@
-    const modal = document.getElementById('miModal');
-    const abrirModalBtn = document.getElementById('abrirModal');
-    const cerrarModalSpan = document.getElementsByClassName('cerrarModal')[0];
-    const submitBtn = document.getElementById('submitBtn');
+const submitBtn = document.getElementById('submitBtn');
+const modal = document.getElementById('miModal');
+const abrirModalBtn = document.getElementById('abrirModal');
+const cerrarModalSpan = document.querySelector('.cerrarModal');
 
-    // Abre el modal cuando se hace clic en el botón
-    abrirModalBtn.onclick = function () {
-      modal.style.display = 'block';
-      modal.classList.add('modal-content'); // Agrega la clase al modal directamente
-    };
+abrirModalBtn.addEventListener('click', function() {
+  modal.style.display = 'block';
+  modal.classList.add('modal-content');
+});
 
-    // Cierra el modal cuando se hace clic en la x
-    cerrarModalSpan.onclick = function () {
+cerrarModalSpan.addEventListener('click', function() {
+  modal.style.display = 'none';
+  modal.classList.remove('modal-content');
+});
+
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
       modal.style.display = 'none';
-      modal.classList.remove('modal-content'); // Quita la clase al modal directamente
-    };
+      modal.classList.remove('modal-content');
+  }
+});
 
-    // Cierra el modal cuando se hace clic fuera de él
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-        modal.classList.remove('modal-content'); // Quita la clase al modal directamente
+submitBtn.addEventListener('click', function() {
+  const usuarioInput = document.getElementById('exampleInputEmail1').value;
+  const contraseñaInput = document.getElementById('exampleInputPassword1').value;
+
+  // Validar que los campos no estén vacíos
+  if (!usuarioInput || !contraseñaInput) {
+      alert('Por favor, ingresa usuario y contraseña.');
+      return;
+  }
+
+  const usuarioEncontrado = usuarios.find(usuario => {
+      // Verificar que las propiedades existan antes de acceder a ellas
+      if (usuario && usuario.usuario && usuario.contraseña) {
+          return usuario.usuario === usuarioInput && usuario.contraseña === contraseñaInput;
       }
-    };
+      return false;
+  });
 
-    // Lógica para el botón de enviar (aquí puedes agregar la lógica que desees)
-    submitBtn.onclick = function () {
-      // Obtén los valores del formulario
-      const email = document.getElementById('exampleInputEmail1').value;
-      const password = document.getElementById('exampleInputPassword1').value;
-      // Hacer algo con los valores (por ejemplo, enviarlos a un servidor)
-      console.log('Email:', email);
-      console.log('Password:', password);
+  if (usuarioEncontrado) {
+      mostrarDatosUsuario(usuarioEncontrado);
+  } else {
+      alert('Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');
+  }
 
-      // Cierra el modal después de enviar el formulario
-      modal.style.display = 'none';
-    };
+  modal.style.display = 'none';
+  modal.classList.remove('modal-content');
+});
+
+function mostrarDatosUsuario(usuario) {
+  const contenedorDatos = document.querySelector('.contenedor-datos-usuario');
+
+  const tarjetaUsuario = document.createElement('div');
+  tarjetaUsuario.classList.add('card');
+
+  tarjetaUsuario.innerHTML = `
+      <div class="card-body">
+        <div class="nombretitulo">
+          <h2 class="card-title">${usuario.nombre} ${usuario.apellido}</h2>
+        </div>
+          <p class="card-text">Alergias: ${usuario.alergia}</p>
+          <p class="card-text">Medicina que toma: ${usuario.medicina}</p>
+          <p class="card-text">Presión Arterial: ${usuario.presionArterial}</p>
+          <p class="card-text">Tipo de Sangre: ${usuario.tipoSangre}</p>
+          <p class="card-text">Condiciones Médicas: ${usuario.condicionesMedicas.join(', ')}</p>
+      </div>
+  `;
+
+  contenedorDatos.appendChild(tarjetaUsuario);
+}
 

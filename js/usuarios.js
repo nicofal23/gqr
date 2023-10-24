@@ -1,28 +1,25 @@
 const usuarios = [
-    {
-      id: 1,
-      nombre: "Juan",
-      apellido: "Pérez",
-      dni: "12345678",
-      obraSocial: "OSDE",
-      // otras propiedades que quieras agregar
+    { 
+        nombre: 'Nicolas', 
+        apellido: 'Falciglio', 
+        alergia: 'ninguna', 
+        medicina: 'Omeoprazol',
+        presionArterial: '120/80',
+        tipoSangre: 'A+',
+        condicionesMedicas: ['ninguna'],
+        usuario: 'nicolas',
+        contraseña: '981990'
     },
-    {
-      id: 2,
-      nombre: "María",
-      apellido: "Gómez",
-      dni: "23456789",
-      obraSocial: "Swiss Medical",
-      // otras propiedades que quieras agregar
+    { 
+        nombre: 'Javier', 
+        apellido: 'Falciglio', 
+        alergia: 'ninguna', 
+        medicina: 'benazepril (Lotensin)',
+        presionArterial: '130/85',
+        tipoSangre: '0-',
+        condicionesMedicas: ['sin vesicula','Hipertensíon'],
+        usuario: 'javier',
+        contraseña: '17229573'
     },
-    {
-      id: 3,
-      nombre: "Carlos",
-      apellido: "López",
-      dni: "34567890",
-      obraSocial: "Medife",
-      // otras propiedades que quieras agregar
-    },
-    // puedes agregar más objetos de usuario según sea necesario
-  ];
-  
+    // ...otros usuarios...
+];

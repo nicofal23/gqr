@@ -14,7 +14,7 @@
 //     width: 50%;
 // }
 #miModal {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -30,6 +30,19 @@
     padding: 20px;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    top: 40%;
+    left: 25%;
 }
 
+.botoncerrar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.cerrarModal {
+    color: red; /* Cambia el color de la X a rojo */
+    font-weight: bold; /* Hace la X más gruesa */
+    font-family: Arial, sans-serif; /* Establece la fuente de la X */
+  }
 /* Resto de tus estilos para el modal... */
