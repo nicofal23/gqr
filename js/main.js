@@ -181,6 +181,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <img src="./assets/img/credencial.png" alt="credencial">
         </div>
     </div>
+    <div>
+        <div>
+            <h2>TELEFONOS DE EMERGENCIA:<
 
         <p></p>
     `;
