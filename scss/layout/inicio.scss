@@ -46,10 +46,14 @@ h3 {
         border: 3px solid #F8F9FA;
         p {
             padding: .625rem;
+            font-size: 1.875rem;
         }
     }
 }
 .botones {
     display: flex;
     justify-content: space-between;
+}
+h1 {
+    font-size: 5.875rem;
 }
