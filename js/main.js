@@ -241,7 +241,7 @@ function generarURLUsuario(usuario) {
 }
 
 function mostrarDatosUsuario(usuario) {
-    const contenedorDatos = document.querySelector('.contenedor-datos-usuario');
+    const contenedorDatos = document.querySelector('.datos');
 
     // Generar la URL única para este usuario
     const urlUsuario = generarURLUsuario(usuario);
