@@ -231,3 +231,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Al cargar la página, muestra el contenido original
     section.innerHTML = contenidoOriginal;
 });
+
+
+
+//prueba de html generado
+
+function generarURLUsuario(usuario) {
+    return `https://nicofal23.github.io/gqr//usuario/${usuario.usuario}`;
+}
+
+function mostrarDatosUsuario(usuario) {
+    const contenedorDatos = document.querySelector('.contenedor-datos-usuario');
+
+    // Generar la URL única para este usuario
+    const urlUsuario = generarURLUsuario(usuario);
+
+    const tarjetaUsuario = document.createElement('div');
+    tarjetaUsuario.classList.add('card');
+
+    tarjetaUsuario.innerHTML = `
+        <div class="card-body">
+            <div class="nombretitulo">
+                <h2 class="card-title">${usuario.nombre} ${usuario.apellido}</h2>
+            </div>
+            <p class="card-text">Alergias: ${usuario.alergia}</p>
+            <p class="card-text">Medicina que toma: ${usuario.medicina}</p>
+            <p class="card-text">Presión Arterial: ${usuario.presionArterial}</p>
+            <p class="card-text">Tipo de Sangre: ${usuario.tipoSangre}</p>
+            <p class="card-text">Condiciones Médicas: ${usuario.condicionesMedicas.join(', ')}</p>
+            <p class="card-text">URL Única: <a href="${urlUsuario}" target="_blank">${urlUsuario}</a></p>
+        </div>
+    `;
+
+    contenedorDatos.appendChild(tarjetaUsuario);
+}

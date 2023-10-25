@@ -24,6 +24,6 @@ const usuarios = [
     // ...otros usuarios...
 ];
 
-module.exports = usuarios;
+
 
 
