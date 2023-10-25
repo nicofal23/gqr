@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //prueba de html generado
 
 function generarURLUsuario(usuario) {
-    return `https://nicofal23.github.io/gqr//usuario/${usuario.usuario}`;
+    return `https://nicofal23.github.io/gqr/usuario/${usuario.usuario}`;
 }
 
 function mostrarDatosUsuario(usuario) {
